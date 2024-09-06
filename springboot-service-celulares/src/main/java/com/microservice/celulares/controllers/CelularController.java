@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.microservice.celulares.entity.Celular;
 import com.microservice.celulares.services.CelularService;
 
+
 @RestController
 public class CelularController {
 	
@@ -26,6 +27,11 @@ public class CelularController {
 	@GetMapping("/list")
 	public List<Celular> list(){
 		return service.findAll();
+	}
+	
+	@GetMapping("/celular/{id}")
+	public Celular detail(@PathVariable Long id){
+		return service.findById(id);
 	}
 	
 	@DeleteMapping("/celular/{id}")
